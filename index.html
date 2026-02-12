@@ -54,8 +54,9 @@
       border-radius: 30px;
       border: none;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, left 0.2s ease, top 0.2s ease;
       position: relative;
+      touch-action: manipulation; /* smooth touch on iPhone */
     }
 
     .yes {
@@ -187,10 +188,17 @@
       yesBtn.style.transform = `scale(${yesScale})`;
     }
 
+    // Hover: shake + move
     noBtn.addEventListener("mouseover", () => {
       noBtn.classList.add("shake");
       moveNoButton();
       setTimeout(() => noBtn.classList.remove("shake"), 300);
+    });
+
+    // Click: jump immediately like hover, impossible to click
+    noBtn.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent default click
+      moveNoButton();
     });
 
     function sayYes() {
