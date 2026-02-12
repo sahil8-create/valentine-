@@ -202,13 +202,15 @@
     });
 
     function sayYes() {
-      card.innerHTML = `
-        <div class="typewriter">
-          Get ready for tomorrow
-         <div class="wink">😉</div>
-      `;
-      launchHearts();
-    }
+  card.innerHTML = `
+    <div class="typewriter">
+      Get ready for tomorrow
+    </div>
+    <div class="wink">😉</div> <!-- Keep the big animated wink at the bottom -->
+  `;
+  launchHearts();
+}
+
 
     function launchHearts() {
       for (let i = 0; i < 30; i++) {
